@@ -1,15 +1,14 @@
 const { S3Client } = require('@aws-sdk/client-s3');
-require('dotenv').config();
 
 // Validate environment variables
 if (!process.env.AWS_ACCESS_KEY_ID) {
-    throw new Error('AWS_ACCESS_KEY_ID is not set in .env file');
+    throw new Error('AWS_ACCESS_KEY_ID is not set in environment variables');
 }
 if (!process.env.AWS_SECRET_ACCESS_KEY) {
-    throw new Error('AWS_SECRET_ACCESS_KEY is not set in .env file');
+    throw new Error('AWS_SECRET_ACCESS_KEY is not set in environment variables');
 }
 if (!process.env.AWS_S3_BUCKET_NAME) {
-    throw new Error('AWS_S3_BUCKET_NAME is not set in .env file');
+    throw new Error('AWS_S3_BUCKET_NAME is not set in environment variables');
 }
 
 const s3Client = new S3Client({
