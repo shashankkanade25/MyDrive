@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Register - MyDrive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -10,7 +10,7 @@
         font-family: 'Cambria Math', 'Cambria', serif;
       }
       body {
-        background-image: url('/White-paper-texture-for-Projects (1).jpg');
+        background-image: url('/image.png');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -22,57 +22,83 @@
         to { opacity: 1; transform: translateY(0); }
       }
       .animate-fadeInUp { animation: fadeInUp 0.5s ease-out forwards; }
+      
+      /* Mobile optimizations */
+      @media (max-width: 640px) {
+        body {
+          padding: 1rem;
+        }
+        .register-container {
+          padding: 1.5rem !important;
+          margin: 0.5rem;
+        }
+        .logo-container {
+          margin-bottom: 1.5rem !important;
+        }
+        h1 {
+          font-size: 1.75rem !important;
+        }
+      }
+      
+      @media (max-height: 700px) {
+        .register-container {
+          padding: 1rem !important;
+        }
+        .logo-container {
+          margin-bottom: 1rem !important;
+        }
+      }
     </style>
   </head>
-  <body class="bg-gray-50 h-screen w-screen flex items-center justify-center p-4">
+  <body class="bg-gray-50 min-h-screen w-full flex items-center justify-center p-3 sm:p-4">
     
-    <div class="bg-white rounded-2xl shadow-lg p-10 max-w-md w-full border border-gray-200 animate-fadeInUp">
+    <div class="register-container bg-white rounded-2xl shadow-lg p-6 sm:p-10 max-w-md w-full border border-gray-200 animate-fadeInUp my-4">
       <!-- Logo -->
-      <div class="flex items-center justify-center mb-8">
-        <div class="bg-blue-600 p-3.5 rounded-xl shadow-md">
-          <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+      <div class="logo-container flex items-center justify-center mb-6 sm:mb-8">
+        <div class="bg-blue-600 p-3 sm:p-3.5 rounded-xl shadow-md">
+          <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
             <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
           </svg>
         </div>
       </div>
       
-      <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
-        <p class="text-gray-500">Join MyDrive today</p>
+      <div class="text-center mb-6 sm:mb-8">
+        <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Create Account</h1>
+        <p class="text-sm sm:text-base text-gray-500">Join MyDrive today</p>
       </div>
 
-      <form action="/user/register" method="post" class="space-y-5">
+      <form action="/user/register" method="post" class="space-y-4 sm:space-y-5">
         <div>
-          <label for="username" class="block mb-2 text-sm font-semibold text-gray-700">Username</label>
+          <label for="username" class="block mb-2 text-xs sm:text-sm font-semibold text-gray-700">Username</label>
           <input 
             type="text" 
             id="username" 
             name="username" 
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full px-4 py-3 transition"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full px-3 sm:px-4 py-2.5 sm:py-3 transition"
             placeholder="johndoe" 
             required 
           />
         </div>
 
         <div>
-          <label for="email" class="block mb-2 text-sm font-semibold text-gray-700">Email</label>
+          <label for="email" class="block mb-2 text-xs sm:text-sm font-semibold text-gray-700">Email</label>
           <input 
             type="email" 
             id="email" 
             name="email" 
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full px-4 py-3 transition"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full px-3 sm:px-4 py-2.5 sm:py-3 transition"
             placeholder="you@example.com" 
             required 
           />
         </div>
         
         <div>
-          <label for="password" class="block mb-2 text-sm font-semibold text-gray-700">Password</label>
+          <label for="password" class="block mb-2 text-xs sm:text-sm font-semibold text-gray-700">Password</label>
           <input 
             type="password" 
             id="password" 
             name="password" 
-            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full px-4 py-3 transition"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent block w-full px-3 sm:px-4 py-2.5 sm:py-3 transition"
             placeholder="••••••••" 
             required 
           />
@@ -80,14 +106,14 @@
 
         <button 
           type="submit" 
-          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition duration-200"
+          class="w-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold py-2.5 sm:py-3 px-6 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 active:scale-100 transition duration-200 mt-6"
         >
           Create Account
         </button>
       </form>
 
-      <div class="mt-8 text-center">
-        <p class="text-gray-600 text-sm">
+      <div class="mt-6 sm:mt-8 text-center">
+        <p class="text-gray-600 text-xs sm:text-sm">
           Already have an account? 
           <a href="/user/login" class="text-blue-600 font-semibold hover:underline">Sign in</a>
         </p>
