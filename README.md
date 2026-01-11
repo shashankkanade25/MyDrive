@@ -1,93 +1,78 @@
-# MyDrive - AWS S3 Cloud Storage
+📁 MyDrive – Cloud File Storage Application
 
-A file storage application using AWS S3 for cloud storage.
+MyDrive is a cloud-based file storage application inspired by Google Drive. It allows users to register, authenticate, upload files, manage their data, and securely store files on AWS S3 with metadata stored in MongoDB Atlas. The backend is deployed as a long-running Node.js service.
 
-## Setup Instructions
+This project focuses on backend development, cloud integration, authentication, and deployment, not just UI.
 
-### 1. Install Dependencies
 
-```bash
+🚀 Features
+
+
+User registration and login (JWT-based authentication)
+Secure file upload and storage using AWS S3
+File metadata storage in MongoDB Atlas
+User-specific file access
+RESTful API architecture
+Environment-based configuration for production
+Deployed on Render (24×7 backend)
+
+🛠️ Tech Stack
+Backend
+
+Node.js | Express.js | MongoDB (Mongoose ODM) | JWT Authentication | Multer (file handling) | Cloud & DevOps | AWS S3 (file storage) | MongoDB Atlas (managed database) | Render
+Environment Variables for secrets management
+
+
+
+🔐 Environment Variables
+
+Create the following environment variables in your deployment platform (Render):
+
+PORT=10000
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/mydrive
+JWT_SECRET=your_jwt_secret
+AWS_ACCESS_KEY_ID=your_aws_access_key
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+AWS_REGION=ap-south-1
+AWS_BUCKET_NAME=your_bucket_name
+
+
+⚠️ Never commit these values to GitHub.
+
+▶️ Running Locally
+git clone https://github.com/shashankkanade25/MyDrive.git
+cd MyDrive
 npm install
-```
-
-### 2. AWS S3 Setup
-
-1. Create an AWS account at https://aws.amazon.com/
-2. Create an S3 bucket:
-   - Go to S3 console
-   - Click "Create bucket"
-   - Choose a unique bucket name
-   - Select a region (e.g., us-east-1)
-   - Uncheck "Block all public access" if you want public file access
-   - Click "Create bucket"
-
-3. Create IAM credentials:
-   - Go to IAM console
-   - Click "Users" → "Add user"
-   - Enable "Programmatic access"
-   - Attach policy: `AmazonS3FullAccess`
-   - Save the Access Key ID and Secret Access Key
-
-4. Configure CORS on your S3 bucket (for file previews):
-   - Go to your bucket → Permissions → CORS
-   - Add this configuration:
-   ```json
-   [
-     {
-       "AllowedHeaders": ["*"],
-       "AllowedMethods": ["GET", "PUT", "POST", "DELETE"],
-       "AllowedOrigins": ["*"],
-       "ExposeHeaders": []
-     }
-   ]
-   ```
-
-### 3. Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key_here
-
-AWS_REGION=us-east-1
-AWS_ACCESS_KEY_ID=your_aws_access_key_id
-AWS_SECRET_ACCESS_KEY=your_aws_secret_access_key
-AWS_S3_BUCKET_NAME=your_s3_bucket_name
-
-PORT=3000
-```
-
-### 4. Run the Application
-
-```bash
 npm start
+
+
+The server will start on:
+```
+http://localhost:3000
 ```
 
-The application will run on `http://localhost:3000`
+☁️ Deployment
 
-## Features
+Backend deployed on Render as a Node.js web service
+MongoDB hosted on MongoDB Atlas
+File storage handled by AWS S3
+Uses dynamic ports (process.env.PORT) for production compatibility
 
-- ✅ File upload to AWS S3
-- ✅ File download with signed URLs
-- ✅ File preview (images, videos, PDFs)
-- ✅ File deletion from S3
-- ✅ User authentication
-- ✅ Secure file storage
 
-## Migration from Cloudinary/Firebase
+🧠 What This Project Demonstrates
+Real-world backend architecture
+Secure authentication and authorization
+Cloud storage integration (AWS)
+Production deployment troubleshooting
+Handling environment-specific configs
+Debugging real production issues (TLS, auth, networking)
 
-This project has been migrated from Cloudinary/Firebase to AWS S3. Old Cloudinary/Firebase dependencies have been removed.
+<img width="2878" height="1611" alt="image" src="https://github.com/user-attachments/assets/a6fcd4f4-50a7-4eae-be71-d4c51bbaadb3" />
 
-## File Size Limit
 
-Default: 10MB per file (configurable in `middlewares/upload.js`)
+👤 Author
 
-## Technologies Used
+Shashank Kanade
+Computer Science Student | Cloud & DevOps Enthusiast
 
-- Node.js + Express
-- MongoDB + Mongoose
-- AWS SDK v3
-- Multer + Multer-S3
-- EJS templating
-- JWT authentication
+GitHub: https://github.com/shashankkanade25
