@@ -1,4 +1,4 @@
-📁 MyDrive – Cloud File Storage Application
+## 📁 MyDrive – Cloud File Storage Application ##
 
 MyDrive is a cloud-based file storage application inspired by Google Drive. It allows users to register, authenticate, upload files, manage their data, and securely store files on AWS S3 with metadata stored in MongoDB Atlas. The backend is deployed as a long-running Node.js service.
 
@@ -29,13 +29,19 @@ Environment Variables for secrets management
 Create the following environment variables in your deployment platform (Render):
 
 PORT=10000
+```
 MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/mydrive
-JWT_SECRET=your_jwt_secret
-AWS_ACCESS_KEY_ID=your_aws_access_key
-AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-AWS_REGION=ap-south-1
-AWS_BUCKET_NAME=your_bucket_name
 
+JWT_SECRET=your_jwt_secret
+
+AWS_ACCESS_KEY_ID=your_aws_access_key
+
+AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+
+AWS_REGION=ap-south-1
+
+AWS_BUCKET_NAME=your_bucket_name
+```
 
 ⚠️ Never commit these values to GitHub.
 
